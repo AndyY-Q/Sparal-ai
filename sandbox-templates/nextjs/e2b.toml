@@ -1,0 +1,16 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (4db3unmzfbchb6lhi3y8) or template name (anacotte-website-ai) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("anacotte-website-ai") # Sync sandbox
+# sandbox = await AsyncSandbox.create("anacotte-website-ai") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('anacotte-website-ai')
+
+team_id = "d401615f-8840-4b95-b2cb-d30dc504707f"
+dockerfile = "e2b.Dockerfile"
+template_name = "anacotte-website-ai"
+template_id = "4db3unmzfbchb6lhi3y8"
