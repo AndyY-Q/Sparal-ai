@@ -6,6 +6,7 @@ import { EyeIcon, CodeIcon, CrownIcon } from "lucide-react";
 
 import { Fragment } from "@/generated/prisma";
 import { Button } from "@/components/ui/button";
+import { UserControl } from "@/components/user-control";
 import { FileExplorer } from "@/components/file-explorer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
@@ -15,8 +16,10 @@ import {
 } from "@/components/ui/resizable";
 
 import { FragmentWeb } from "../components/fragment-web";
-import { MessagesContainer } from "../components/messages-container";
 import { ProjectHeader } from "../components/project-header";
+import { MessagesContainer } from "../components/messages-container";
+
+
 
 interface Props {
     projectId: string;
@@ -70,6 +73,7 @@ export const ProjectView = ({ projectId }: Props) => {
                                         <CrownIcon />Upgrade
                                     </Link>
                                 </Button>
+                                <UserControl />
                             </div>
                         </div>
                         <TabsContent value="preview">
