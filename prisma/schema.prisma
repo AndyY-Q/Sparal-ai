@@ -35,7 +35,7 @@ enum MessageType {
 }
 
 model Message {
-  id  String   @id @default(uuid())
+  id  String @id @default(uuid())
   content String
   role MessageRole
   type MessageType
@@ -59,4 +59,10 @@ model Fragment {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Usage {
+  key String @id
+  points Int
+  expire DateTime?
 }
