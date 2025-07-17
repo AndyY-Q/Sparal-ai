@@ -11,6 +11,7 @@
 # const sandbox = await Sandbox.create('anacotte-website-ai')
 
 team_id = "d401615f-8840-4b95-b2cb-d30dc504707f"
+start_cmd = "compile_page.sh"
 dockerfile = "e2b.Dockerfile"
 template_name = "anacotte-website-ai"
 template_id = "4db3unmzfbchb6lhi3y8"
