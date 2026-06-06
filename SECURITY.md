@@ -1,6 +1,6 @@
 # Security Policy
 
-Sparal executes generated code inside E2B sandboxes. Treat provider keys, user prompts, generated files, and sandbox URLs as sensitive application data.
+LaunchKit AI executes generated code inside E2B sandboxes. Treat provider keys, user prompts, generated files, and sandbox URLs as sensitive application data.
 
 ## Reporting Issues
 

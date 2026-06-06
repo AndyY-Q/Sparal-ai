@@ -1,10 +1,10 @@
 # v0.1.0 Release Notes
 
-Sparal v0.1.0 is the first OSS hardening release.
+LaunchKit AI v0.1.0 is the first OSS hardening release.
 
 ## Highlights
 
-- Repositioned Sparal as an open-source sandboxed coding-agent template.
+- Repositioned LaunchKit AI as an open-source AI app builder powered by sandboxed coding agents.
 - Added a polished public home screen with a product-native agent workflow preview.
 - Added CI for lint, typecheck, and production build.
 - Added smoke-test mode for build verification without real Clerk credentials.

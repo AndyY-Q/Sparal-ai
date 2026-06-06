@@ -55,7 +55,7 @@ const AuthenticatedProjectsList = () => {
                             <div className="flex items-center gap-x-4">
                                 <Image
                                     src="/logo.svg"
-                                    alt="Sparal"
+                                    alt="LaunchKit AI"
                                     width={32}
                                     height={32}
                                     className="object-contain"

@@ -100,7 +100,7 @@ export const ProjectForm = () => {
                             minRows={2}
                             maxRows={8}
                             className="pt-4 resize-none border-none w-full outline-none bg-transparent text-base leading-7 placeholder:text-muted-foreground/70"
-                            placeholder="Describe the app, maintainer workflow, or sandboxed agent experiment you want Sparal to build..."
+                            placeholder="Describe the app, maintainer workflow, or sandboxed agent experiment you want LaunchKit AI to build..."
                             onKeyDown={(e) => {
                                 if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
                                     e.preventDefault();

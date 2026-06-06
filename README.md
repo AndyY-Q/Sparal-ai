@@ -1,12 +1,12 @@
-# Sparal
+# LaunchKit AI
 
-Sparal is an open-source Next.js template for building and studying sandboxed coding agents. It combines a chat-first product surface with OpenAI-powered agent workflows, Inngest orchestration, E2B code sandboxes, tRPC APIs, Clerk authentication, Prisma, and Postgres.
+LaunchKit AI is an open-source AI app builder that turns prompts into runnable web apps with sandboxed coding agents. It combines a chat-first product surface with OpenAI-powered agent workflows, Inngest orchestration, E2B code sandboxes, tRPC APIs, Clerk authentication, Prisma, and Postgres.
 
-The project is designed for maintainers who want a practical reference app for agent-generated code, safe sandbox execution, usage limits, and previewable artifacts.
+The project is designed for maintainers and builders who want a practical reference app for prompt-to-app generation, safe sandbox execution, usage limits, and previewable artifacts.
 
 ## Why This Exists
 
-Most AI app builders hide the interesting parts. Sparal keeps the architecture visible so open-source maintainers can inspect, fork, and adapt the core loop:
+Most AI app builders hide the interesting parts. LaunchKit AI keeps the architecture visible so open-source maintainers can inspect, fork, and adapt the core loop:
 
 ```mermaid
 flowchart LR
@@ -32,7 +32,7 @@ flowchart LR
 
 ## Screenshots
 
-![Sparal public home](docs/screenshots/home.png)
+![LaunchKit AI public home](docs/screenshots/home.png)
 
 See [docs/demo.md](./docs/demo.md) for smoke-test verification and the full provider-backed demo checklist.
 
@@ -52,8 +52,8 @@ See [docs/demo.md](./docs/demo.md) for smoke-test verification and the full prov
 ## Quick Start
 
 ```bash
-git clone https://github.com/AndyY-Q/Sparal-ai.git
-cd Sparal-ai
+git clone https://github.com/AndyY-Q/Sparal-ai.git launchkit-ai
+cd launchkit-ai
 npm install
 cp .env.example .env.local
 npm run dev
@@ -92,7 +92,7 @@ CLERK_SECRET_KEY=sk_test_ZHVtbXk
 ```
 
 These values are intentionally not valid for real runtime authentication.
-When these exact dummy values are present, Sparal enters smoke-test mode: Clerk middleware, ClerkJS, the pricing table, and authenticated project lists are skipped so CI can verify the public app shell without contacting Clerk.
+When these exact dummy values are present, LaunchKit AI enters smoke-test mode: Clerk middleware, ClerkJS, the pricing table, and authenticated project lists are skipped so CI can verify the public app shell without contacting Clerk.
 
 ### OpenAI
 
@@ -140,13 +140,13 @@ Before applying to OpenAI Codex for OSS, make sure GitHub can review the project
 - Confirm the repository appears on the public `AndyY-Q` profile.
 - Confirm the GitHub API returns metadata from `https://api.github.com/repos/AndyY-Q/Sparal-ai`.
 - Add repository topics such as `openai`, `coding-agent`, `e2b`, `inngest`, `nextjs`, `trpc`, `oss`.
-- Add a short repository description: `Open-source template for sandboxed coding agents with Next.js, OpenAI, Inngest, and E2B.`
+- Add a short repository description: `Open-source AI app builder for turning prompts into runnable web apps with sandboxed coding agents.`
 
 ## OSS Application Narrative
 
-Sparal should be presented as a sandboxed coding-agent template and maintainer automation playground, not only as another AI app builder. The strongest application angle is:
+LaunchKit AI should be presented as an open-source AI app builder with a transparent sandboxed coding-agent architecture. The strongest application angle is:
 
-> Sparal gives open-source maintainers a working reference for chat-driven code generation, isolated execution, artifact previews, and usage governance using widely adopted web primitives.
+> LaunchKit AI gives open-source maintainers and builders a working reference for prompt-to-app generation, isolated code execution, artifact previews, and usage governance using widely adopted web primitives.
 
 ## Contributing
 

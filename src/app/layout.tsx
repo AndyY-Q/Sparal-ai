@@ -11,9 +11,9 @@ const SMOKE_TEST_CLERK_PUBLISHABLE_KEY =
   "pk_test_ZHVtbXkuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
 export const metadata: Metadata = {
-  title: "Sparal | Sandboxed Coding-Agent Template",
+  title: "LaunchKit AI | Open-Source AI App Builder",
   description:
-    "Open-source Next.js template for sandboxed coding agents with OpenAI, Inngest, E2B, tRPC, Clerk, and Prisma.",
+    "Open-source AI app builder for turning prompts into runnable web apps with sandboxed coding agents.",
 };
 
 export default function RootLayout({

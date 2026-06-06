@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve Sparal.
+Thanks for helping improve LaunchKit AI.
 
 ## Development Flow
 

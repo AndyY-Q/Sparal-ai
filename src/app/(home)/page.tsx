@@ -58,18 +58,18 @@ const Page = () => {
       <section className="mx-auto grid min-h-[calc(100vh-72px)] w-full max-w-6xl items-center gap-12 overflow-hidden px-1 py-24 md:grid-cols-[0.92fr_1.08fr] md:py-28 lg:gap-16">
         <div className="relative z-10 min-w-0">
           <div className="mb-8 inline-flex items-center gap-3 rounded-full border bg-background/85 px-3 py-1.5 text-xs text-muted-foreground shadow-sm backdrop-blur">
-            <Image src="/logo.svg" alt="Sparal" width={18} height={18} />
-            <span>Open-source agent workbench</span>
+            <Image src="/logo.svg" alt="LaunchKit AI" width={18} height={18} />
+            <span>Open-source AI app builder</span>
             <span className="h-1 w-1 rounded-full bg-primary" />
             <span>MIT</span>
           </div>
           <h1 className="max-w-full text-balance text-4xl font-semibold leading-[1.02] text-foreground sm:text-5xl md:max-w-3xl md:text-6xl lg:text-7xl">
-            Build and study sandboxed coding agents
+            Turn prompts into runnable apps
           </h1>
           <p className="mt-6 max-w-full text-pretty text-base leading-7 text-muted-foreground md:max-w-xl md:text-lg">
-            Sparal turns the full coding-agent loop into a forkable reference:
-            OpenAI reasoning, Inngest orchestration, E2B execution, tRPC APIs,
-            Clerk auth, and Prisma persistence.
+            LaunchKit AI is a forkable app-builder product powered by
+            sandboxed coding agents: OpenAI reasoning, Inngest orchestration,
+            E2B execution, tRPC APIs, Clerk auth, and Prisma persistence.
           </p>
 
           <div className="mt-8 w-full max-w-full md:max-w-2xl">
@@ -102,7 +102,7 @@ const Page = () => {
               </div>
             </div>
 
-            <div className="grid min-h-[520px] md:grid-cols-[180px_1fr]">
+            <div className="grid min-h-[520px] md:grid-cols-[160px_minmax(0,1fr)]">
               <aside className="hidden border-r bg-sidebar/70 p-4 md:block">
                 <div className="mb-5 flex items-center gap-2 text-xs font-medium text-muted-foreground">
                   <FileCode2Icon className="size-3.5" />
@@ -135,8 +135,8 @@ const Page = () => {
                 </div>
               </aside>
 
-              <div className="grid gap-0 md:grid-rows-[1fr_190px]">
-                <div className="grid gap-4 p-4 md:grid-cols-[1fr_210px]">
+              <div className="grid min-w-0 gap-0 md:grid-rows-[1fr_190px]">
+                <div className="grid min-w-0 gap-4 p-4 md:grid-cols-[minmax(0,1fr)_170px]">
                   <div className="rounded-xl border bg-[#111318] p-4 text-slate-100 shadow-inner">
                     <div className="mb-4 flex items-center justify-between">
                       <div className="flex items-center gap-2 text-xs text-slate-400">
@@ -175,7 +175,7 @@ const Page = () => {
                               <div className="font-mono text-[10px] uppercase text-muted-foreground">
                                 {label}
                               </div>
-                              <div className="text-xs">{value}</div>
+                              <div className="truncate text-xs">{value}</div>
                             </div>
                           </div>
                         ))}
@@ -185,7 +185,7 @@ const Page = () => {
                     <div className="rounded-xl border bg-primary p-3 text-primary-foreground shadow-sm">
                       <div className="text-xs font-medium">fragment ready</div>
                       <div className="mt-2 flex items-center justify-between text-[11px] opacity-85">
-                        <span>localhost:3000</span>
+                        <span className="truncate">localhost:3000</span>
                         <ArrowRightIcon className="size-3.5" />
                       </div>
                     </div>

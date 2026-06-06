@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Repositioned Sparal as an open-source sandboxed coding-agent template.
+- Repositioned LaunchKit AI as an open-source AI app builder powered by sandboxed coding agents.
 - Added OSS project metadata, setup documentation, CI, roadmap, and contribution templates.
 - Improved the home screen copy and layout for maintainers evaluating the project.
 

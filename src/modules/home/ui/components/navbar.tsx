@@ -28,8 +28,8 @@ export const Navbar = () => {
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="Sparal" width={24} height={24} />
-          <span className="font-semibold text-lg">Sparal</span>
+          <Image src="/logo.svg" alt="LaunchKit AI" width={24} height={24} />
+          <span className="font-semibold text-lg">LaunchKit AI</span>
         </Link>
         <div className="hidden items-center gap-5 text-sm text-muted-foreground md:flex">
           <Link href="/#workflow" className="transition-colors hover:text-foreground">

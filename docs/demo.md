@@ -1,12 +1,12 @@
-# Sparal Demo
+# LaunchKit AI Demo
 
 This demo uses smoke-test mode so the public app shell can be reviewed without real provider credentials.
 
 ## Public Home
 
-![Sparal home](./screenshots/home.png)
+![LaunchKit AI home](./screenshots/home.png)
 
-The public screen explains Sparal as a forkable coding-agent workbench and shows the core architecture:
+The public screen explains LaunchKit AI as a forkable AI app builder and shows the core architecture:
 
 1. Prompt intake
 2. Inngest agent run

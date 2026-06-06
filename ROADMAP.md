@@ -1,6 +1,6 @@
 # Roadmap
 
-Sparal is moving toward a dependable open-source reference app for sandboxed coding agents.
+LaunchKit AI is moving toward a dependable open-source AI app builder for prompt-to-app generation with sandboxed coding agents.
 
 ## Now
 
