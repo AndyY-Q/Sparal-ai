@@ -52,7 +52,7 @@ See [docs/demo.md](./docs/demo.md) for smoke-test verification and the full prov
 ## Quick Start
 
 ```bash
-git clone https://github.com/AndyY-Q/Sparal-ai.git launchkit-ai
+git clone https://github.com/AndyY-Q/launchkit-ai.git launchkit-ai
 cd launchkit-ai
 npm install
 cp .env.example .env.local
@@ -136,9 +136,9 @@ The `npm run ci` command runs all three verification steps.
 Before applying to OpenAI Codex for OSS, make sure GitHub can review the project without authentication:
 
 - Set the repository visibility to public.
-- Confirm `https://github.com/AndyY-Q/Sparal-ai` loads in a private browser window.
+- Confirm `https://github.com/AndyY-Q/launchkit-ai` loads in a private browser window.
 - Confirm the repository appears on the public `AndyY-Q` profile.
-- Confirm the GitHub API returns metadata from `https://api.github.com/repos/AndyY-Q/Sparal-ai`.
+- Confirm the GitHub API returns metadata from `https://api.github.com/repos/AndyY-Q/launchkit-ai`.
 - Add repository topics such as `openai`, `coding-agent`, `e2b`, `inngest`, `nextjs`, `trpc`, `oss`.
 - Add a short repository description: `Open-source AI app builder for turning prompts into runnable web apps with sandboxed coding agents.`
 

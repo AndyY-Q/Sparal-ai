@@ -36,7 +36,7 @@ export const Navbar = () => {
             Workflow
           </Link>
           <a
-            href="https://github.com/AndyY-Q/Sparal-ai#readme"
+            href="https://github.com/AndyY-Q/launchkit-ai#readme"
             target="_blank"
             rel="noreferrer"
             className="transition-colors hover:text-foreground"
@@ -47,7 +47,7 @@ export const Navbar = () => {
             Pricing
           </Link>
           <a
-            href="https://github.com/AndyY-Q/Sparal-ai"
+            href="https://github.com/AndyY-Q/launchkit-ai"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
