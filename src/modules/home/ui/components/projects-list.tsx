@@ -9,7 +9,22 @@ import { useQuery } from "@tanstack/react-query";
 import { useTRPC } from "@/trpc/client";
 import { Button } from "@/components/ui/button";
 
+const SMOKE_TEST_CLERK_PUBLISHABLE_KEY =
+  "pk_test_ZHVtbXkuY2xlcmsuYWNjb3VudHMuZGV2JA";
+
 export const ProjectsList = () => {
+  const isSmokeTestAuth =
+    process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ===
+    SMOKE_TEST_CLERK_PUBLISHABLE_KEY;
+
+  if (isSmokeTestAuth) {
+    return null;
+  }
+
+  return <AuthenticatedProjectsList />;
+};
+
+const AuthenticatedProjectsList = () => {
   const trpc = useTRPC();
   const { user } = useUser();
   const { data: projects } = useQuery(trpc.projects.getMany.queryOptions());
@@ -62,4 +77,4 @@ export const ProjectsList = () => {
             </div>
         </div>
     );
-}
+};

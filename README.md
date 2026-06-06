@@ -1,36 +1,165 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sparal
 
-## Getting Started
+Sparal is an open-source Next.js template for building and studying sandboxed coding agents. It combines a chat-first product surface with OpenAI-powered agent workflows, Inngest orchestration, E2B code sandboxes, tRPC APIs, Clerk authentication, Prisma, and Postgres.
 
-First, run the development server:
+The project is designed for maintainers who want a practical reference app for agent-generated code, safe sandbox execution, usage limits, and previewable artifacts.
+
+## Why This Exists
+
+Most AI app builders hide the interesting parts. Sparal keeps the architecture visible so open-source maintainers can inspect, fork, and adapt the core loop:
+
+```mermaid
+flowchart LR
+  A["User prompt"] --> B["tRPC protected mutation"]
+  B --> C["Inngest code-agent/run event"]
+  C --> D["OpenAI agent network"]
+  D --> E["E2B sandbox tools"]
+  E --> F["Generated files + preview URL"]
+  F --> G["Prisma project fragment"]
+  G --> H["Next.js UI"]
+```
+
+## Features
+
+- Sandboxed coding-agent workflow with `@inngest/agent-kit` and E2B.
+- OpenAI model calls for code generation, fragment titles, and user-facing responses.
+- Next.js App Router, React 19, Tailwind CSS, and shadcn-style UI primitives.
+- tRPC routers for projects, messages, and usage state.
+- Clerk authentication with protected project routes.
+- Prisma schema for projects, messages, fragments, and usage accounting.
+- Rate-limited free/pro usage model through `rate-limiter-flexible`.
+- CI-ready lint, typecheck, and build scripts.
+
+## Screenshots
+
+![Sparal public home](docs/screenshots/home.png)
+
+See [docs/demo.md](./docs/demo.md) for smoke-test verification and the full provider-backed demo checklist.
+
+## Tech Stack
+
+| Area | Tools |
+| --- | --- |
+| App | Next.js 15, React 19, TypeScript |
+| UI | Tailwind CSS 4, Radix UI, lucide-react |
+| API | tRPC, TanStack Query |
+| Agents | OpenAI, Inngest Agent Kit |
+| Sandboxes | E2B Code Interpreter |
+| Auth | Clerk |
+| Data | Prisma, Postgres |
+| Background jobs | Inngest |
+
+## Quick Start
+
+```bash
+git clone https://github.com/AndyY-Q/Sparal-ai.git
+cd Sparal-ai
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Environment Variables
+
+Create `.env.local` from `.env.example`.
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `DATABASE_URL` | Yes | Postgres connection string used by Prisma. |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Yes | Public Clerk browser key. CI can use the documented dummy test key for build-only checks. |
+| `CLERK_SECRET_KEY` | Yes for auth runtime | Server-side Clerk key. |
+| `OPENAI_API_KEY` | Yes for agent runtime | OpenAI key used by `@inngest/agent-kit`. |
+| `E2B_API_KEY` | Yes for sandbox runtime | E2B key used to create sandboxes. |
+| `INNGEST_EVENT_KEY` | Yes for deployed jobs | Inngest event key. |
+| `INNGEST_SIGNING_KEY` | Yes for deployed jobs | Inngest signing key. |
+| `NEXT_PUBLIC_APP_URL` | Recommended | Canonical app URL for deployed environments. |
+
+## Provider Setup
+
+### Clerk
+
+1. Create a Clerk application.
+2. Copy the publishable and secret keys into `.env.local`.
+3. Configure sign-in and sign-up URLs for `/sign-in` and `/sign-up`.
+
+For CI build verification only, this repository uses a non-secret dummy publishable key:
+
+```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_ZHVtbXkuY2xlcmsuYWNjb3VudHMuZGV2JA
+CLERK_SECRET_KEY=sk_test_ZHVtbXk
+```
+
+These values are intentionally not valid for real runtime authentication.
+When these exact dummy values are present, Sparal enters smoke-test mode: Clerk middleware, ClerkJS, the pricing table, and authenticated project lists are skipped so CI can verify the public app shell without contacting Clerk.
+
+### OpenAI
+
+Create an API key and set `OPENAI_API_KEY`. The current agent configuration lives in `src/inngest/functions.ts`.
+
+### E2B
+
+Create an E2B account and set `E2B_API_KEY`. The sandbox template is in `sandbox-templates/nextjs`.
+
+### Inngest
+
+Run Inngest locally when testing background jobs:
+
+```bash
+npx inngest-cli@latest dev
+```
+
+The app exposes the Inngest handler at `/api/inngest`.
+
+### Database
+
+Run migrations after configuring `DATABASE_URL`:
+
+```bash
+npx prisma migrate dev
+```
+
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run typecheck
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The `npm run ci` command runs all three verification steps.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Repository Visibility Checklist
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Before applying to OpenAI Codex for OSS, make sure GitHub can review the project without authentication:
 
-## Learn More
+- Set the repository visibility to public.
+- Confirm `https://github.com/AndyY-Q/Sparal-ai` loads in a private browser window.
+- Confirm the repository appears on the public `AndyY-Q` profile.
+- Confirm the GitHub API returns metadata from `https://api.github.com/repos/AndyY-Q/Sparal-ai`.
+- Add repository topics such as `openai`, `coding-agent`, `e2b`, `inngest`, `nextjs`, `trpc`, `oss`.
+- Add a short repository description: `Open-source template for sandboxed coding agents with Next.js, OpenAI, Inngest, and E2B.`
 
-To learn more about Next.js, take a look at the following resources:
+## OSS Application Narrative
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sparal should be presented as a sandboxed coding-agent template and maintainer automation playground, not only as another AI app builder. The strongest application angle is:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Sparal gives open-source maintainers a working reference for chat-driven code generation, isolated execution, artifact previews, and usage governance using widely adopted web primitives.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome. Start with issues labeled `good first issue` or `help wanted`, and open a pull request with a clear description, screenshots for UI changes, and the output of:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run ci
+```
+
+## Roadmap
+
+See [ROADMAP.md](./ROADMAP.md).
+
+## License
+
+MIT. See [LICENSE](./LICENSE).

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Geist, Geist_Mono } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import { Toaster } from "sonner";
@@ -8,19 +7,13 @@ import { TRPCReactProvider } from "@/trpc/client";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const SMOKE_TEST_CLERK_PUBLISHABLE_KEY =
+  "pk_test_ZHVtbXkuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
 export const metadata: Metadata = {
-  title: "Sparal: Let AI Create the Website | Sparal",
-  description: "Accelerate your development workflow with Sparal's collaborative tools and AI-powered features",
+  title: "Sparal | Sandboxed Coding-Agent Template",
+  description:
+    "Open-source Next.js template for sandboxed coding agents with OpenAI, Inngest, E2B, tRPC, Clerk, and Prisma.",
 };
 
 export default function RootLayout({
@@ -28,18 +21,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <ClerkProvider
-      appearance={{
-        variables: {
-          colorPrimary: "#C96342",
-        },
-      }}
-    >
+  const app = (
     <TRPCReactProvider>
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="antialiased"
       >
         <ThemeProvider
             attribute="class"
@@ -53,6 +39,24 @@ export default function RootLayout({
       </body>
     </html>
     </TRPCReactProvider>
+  );
+
+  if (
+    process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ===
+    SMOKE_TEST_CLERK_PUBLISHABLE_KEY
+  ) {
+    return app;
+  }
+
+  return (
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#C96342",
+        },
+      }}
+    >
+      {app}
     </ClerkProvider>
   );
 };

@@ -1,12 +1,16 @@
 {
   "name": "sparal-ai",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "An open-source Next.js template for experimenting with sandboxed coding agents.",
+  "license": "MIT",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "ci": "npm run lint && npm run typecheck && npm run build",
     "postinstall": "prisma generate"
   },
   "dependencies": {
@@ -77,6 +81,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@opentelemetry/winston-transport": "^0.28.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/prismjs": "^1.26.5",
